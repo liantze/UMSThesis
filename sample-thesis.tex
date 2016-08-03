@@ -1,0 +1,115 @@
+%%%%%%%%%%%%%%%%%%
+%% Sample thesis using umsthesis.cls, July xx, 2016.
+%% by Lian Tze LIM (liantze@gmail.com)
+%% http://liantze.penguinattack.org/latextypesetting.html#umsthesis
+%%
+%% Possible options:
+%% microtype -- Even nicer typographic output! Reduces chances of hyphenation
+%%              but *sometimes* (though rare) may cause an endless loop as
+%%              the typesetting engine tries to find an optimal line break.
+%%%%%%%%%%%%%%%%%%
+\documentclass[microtype]{umsthesis}
+% \documentclass[microtype,bahasam]{umsthesis}
+
+%% Theses in Bahasa Malaysia may use another style;
+%% consult your faculty/school and change accordingly
+\usepackage[natbibapa]{apacite}
+\setcitestyle{notesep={: }}
+\bibliographystyle{apacite}
+
+%% Load any other packages you need here
+\usepackage{graphicx}
+%% Very useful if you're in engineering, chemistry, physics
+\usepackage{siunitx}
+%% Various symbols (e.g. musical notes)
+\usepackage{wasysym}
+
+%% Just for generating dummy text.
+\usepackage{lipsum}
+
+% %% Information about your thesis
+\author{Lim Lian Tze}
+\matric{PK00001}
+\title{\LaTeX{} Thesis Template for Universiti Sabah Malaysia}
+\degree{Doctor of Philosophy}
+\studyfield{Computer Science}
+\faculty{Faculty of Engineering}
+\submissionyear{2016}
+% \submissionmonth{March}
+\vivadate{20 May 2016}
+
+\begin{document}
+\frontmatter
+
+%% Generates the cover page, a blank page, and then the title page
+\makecoverandtitlepage
+
+%% Generates
+\makedeclaration{1 Aug 2016}
+
+%% Acknowledgements in a separate file
+\input{acknowledgements}
+
+%% English and Malay abstracts in their respective files
+\inputEnAbstract{sample-abstract}
+\inputMsAbstract[Nyatakan Tajuk Bahasa Malaysia]{sample-msabstract}
+
+
+%% Examination Committee Approval: Only required for graduate students.
+%% Undegraduates may comment out this block.
+% \begin{examcommapproval}
+%   % Exam Committee Chairman
+%   \member[title=Professor, department={Faculty of Mathematics}, role={Chairman}]{Name of Chairperson, PhD}
+%   % Internal Examiner 1
+%   \member[title=Associate Professor, department={Faculty of Engineering}, role={Internal Examiner}]{Name of Examiner 1, PhD}
+%   % Internal Examiner 2
+%   \member[title={}, department={Faculty of Engineering}, role={Internal Examiner}]{Name of Examiner 2, PhD}
+%   % External Examiner
+%   \member[title=Associate Professor, department={School of Chemical Engineering}, institute={Imperial College}, role={External Examiner}]{Name of External, PhD}
+% \end{examcommapproval}
+
+% %% Supervisory Committee Approval
+% \begin{supervisoryapproval}
+%   % Supervisory Committee Chairman
+%   \member[title={Associate Professor}, role={Main Supervisor}, department={Faculty of Engineering}]{Name of Chairperson, PhD}
+%   % Supervisory Committee Member 1
+%   \member[title={Ir.}, role={Co-Supervisor}, department={Faculty of Engineering}]{Name of Member 1, PhD}
+%   % Supervisory Committee Member 2
+%   \member[role={Co-Supervisor}, department={Faculty of Engineering}]{Name of Member 2, PhD}
+% \end{supervisoryapproval}
+
+
+%% Declaration page -- remember to sign
+% \declarationpage
+
+
+%% Content lists
+{\clearpage\SingleSpacing
+\tableofcontents\clearpage
+\listoftables\clearpage
+\listoffigures\clearpage
+\listofphotos\clearpage
+\input{abbrevlist}\clearpage
+\input{symbollist}\clearpage
+\input{musiclist}\clearpage
+\listofappendices\clearpage
+}
+
+
+
+\mainmatter
+
+
+%% Recommended to put chapters in separate files
+\input{sample-chap-intro}
+\input{sample-chap-dummy}
+
+%% Your .bib bibliography file (without .bib extension)
+\bibliography{myrefs}
+
+% %% Recommended to put appendices in separate files
+\appendix
+\input{sample-appen-manual}
+\input{sample-appen-try}
+
+\end{document}
