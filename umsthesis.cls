@@ -1,4 +1,11 @@
-\ProvidesClass{umsthesis}
+%%%%%%%%%%%%
+%% This is upnmthesis.cls, created by Lian Tze LIM (liantze@gmail.com)
+%% for the Centre of Graduate Studies, Universiti Pertahanan Nasional
+%% Malaysia.
+%% http://liantze.penguinattack.org/latextypesetting.html#upnmthesis
+%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{umsthesis}[2016/08/04 LaTeX2e class for Universiti Malaysia Sabah (UMS) v1.0.  Copyright (c) 2016 Lian Tze LIM (liantze@gmail.com)]
 
 \LoadClass[11pt,oneside]{memoir}
 

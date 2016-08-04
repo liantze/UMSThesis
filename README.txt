@@ -5,9 +5,10 @@ UMSThesis, a LaTeX class for typesetting a Universiti Malaysia Sabah
     Copyright (C) 2016  Lim Lian Tze
 
     You are recommended to use sample-thesis.tex as a starting template.
+    YOU MUST USE XELATEX TO COMPILE THE PROJECT!
 
     Files:
-    umsthesis.cls           LaTeX class file
+    umsthesis.cls            LaTeX class file
     sample-thesis.tex        Example 'main' thesis .tex file
     *.tex                    Other component .tex files (chapters etc)
     sample-thesis.pdf        Example PDF file of a UMS thesis, can be
