@@ -150,10 +150,10 @@
 %%%%%%%%%%
 \RequirePackage{amsmath}
 \RequirePackage{mathspec}
-\setmainfont[Mapping=tex-text,AutoFakeSlant=0.3,BoldItalicFont = *-Bold,BoldItalicFeatures=FakeSlant]{Tahoma}
-\setsansfont[Mapping=tex-text,AutoFakeSlant=0.3,BoldItalicFont = *-Bold,BoldItalicFeatures=FakeSlant]{Tahoma}
+\setmainfont[Mapping=tex-text,AutoFakeSlant=0.3,BoldFont = *_Bold,BoldItalicFont = *_Bold,BoldItalicFeatures=FakeSlant,Extension=.ttf]{Tahoma}
+\setsansfont[Mapping=tex-text,AutoFakeSlant=0.3,BoldFont = *_Bold,BoldItalicFont = *_Bold,BoldItalicFeatures=FakeSlant,Extension=.ttf]{Tahoma}
 % \setmathfont{Cambria Math}
-\setmathfont(Digits,Latin)[AutoFakeSlant=0.3,BoldItalicFont = *-Bold,BoldItalicFeatures=FakeSlant]{Tahoma}
+\setmathfont(Digits,Latin)[AutoFakeSlant=0.3,BoldFont = *_Bold,BoldItalicFont = *_Bold,BoldItalicFeatures=FakeSlant,Extension=.ttf]{Tahoma}
 
 %%%%%%%%%%
 % Page geometry and text
