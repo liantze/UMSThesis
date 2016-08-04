@@ -1,0 +1,15 @@
+%!TEX ROOT=sample-thesis.tex
+%!TEX PROGRAM=xelatex
+
+\chapter*{Glossary} % Chapter heading without number
+\addcontentsline{toc}{chapter}{Glossary} % Add entry to ToC
+
+{\renewcommand{\arraystretch}{2}\SingleSpacing
+\begin{tabularx}{\textwidth}{@{} l @{\hspace{2em}} >{\raggedright\arraybackslash}X@{}}
+
+dendrite & a short branched extension of a nerve cell, along which impulses received from other cells at synapses are transmitted to the cell body\\
+
+diastole & the phase of the heartbeat when the heart muscle relaxes and allows the chambers to fill with blood.\\
+
+\end{tabularx}
+}
