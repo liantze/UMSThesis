@@ -17,6 +17,12 @@
 \DeclareOption{microtype}{\@microtypetrue}
 
 %%%%%%%%%%%%%
+% Use sans for maths?
+%%%%%%%%%%%%%
+\newif\if@usesansmath
+\DeclareOption{usesansmath}{\@usesansmathtrue}
+
+%%%%%%%%%%%%%
 % Hyphenation.
 %%%%%%%%%%%%%
 \newif\if@disableHyphenate
@@ -153,12 +159,14 @@
 \setmainfont[Mapping=tex-text,AutoFakeSlant=0.3,BoldFont = *_Bold,BoldItalicFont = *_Bold,BoldItalicFeatures=FakeSlant,Extension=.ttf]{Tahoma}
 \setsansfont[Mapping=tex-text,AutoFakeSlant=0.3,BoldFont = *_Bold,BoldItalicFont = *_Bold,BoldItalicFeatures=FakeSlant,Extension=.ttf]{Tahoma}
 % \setmathfont{Cambria Math}
-\setmathfont(Digits,Latin)[AutoFakeSlant=0.3,BoldFont = *_Bold,BoldItalicFont = *_Bold,BoldItalicFeatures=FakeSlant,Extension=.ttf]{Tahoma}
+\if@usesansmath
+  \setmathfont(Digits,Latin)[AutoFakeSlant=0.3,BoldFont = *_Bold,BoldItalicFont = *_Bold,BoldItalicFeatures=FakeSlant,Extension=.ttf]{Tahoma}
+\fi
 
 %%%%%%%%%%
 % Page geometry and text
 %%%%%%%%%%
-%\RequirePackage{calc}
+
 %%%%%%%%%%
 % Page layout -- do not change!
 %%%%%%%%%%
@@ -166,7 +174,7 @@
 \settrimmedsize{297mm}{210mm}{*}
 \setlrmarginsandblock{38mm}{28mm}{*}
 \setulmarginsandblock{28mm}{38mm}{*}
-\setheadfoot{\baselineskip}{10mm}
+\setheadfoot{\baselineskip}{\dimexpr10mm-1.25ex}
 \checkandfixthelayout
 \makeoddhead{plain}{}{}{}
 \makeoddfoot{plain}{}{\thepage}{}
@@ -196,18 +204,14 @@
 % Cover and title pages
 %%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\makecoverandtitlepage}{%
-%  \newgeometry{vmargin=60mm,hmargin=28mm}
   \renewcommand{\thepage}{C\arabic{page}}%
   \makecoverpage%
-%  \mbox{}\thispagestyle{empty}\clearpage% % leave a blank page
   \renewcommand{\thepage}{\arabic{page}}%
   \pagenumbering{roman}%
   \maketitlepage%
-%  \restoregeometry%
 }
 
 \newcommand{\makecoverpage}{%
-  %\begingroup%
   \changepage{-54mm}{-10mm}{10mm}{}{}{32mm}{}{}{}%
   \begin{titlingpage*}%
   \SingleSpacing\thispagestyle{empty}%
@@ -221,7 +225,6 @@
   \@mtsubmissionyear\par%
   \end{titlingpage*}%
   \changepage{54mm}{10mm}{-10mm}{}{}{-32mm}{}{}{}%
-  %\endgroup%
 }
 
 \newcommand{\maketitlepage}{%
@@ -382,20 +385,20 @@
   \captionstyle{\raggedright}
   \newcommand\source[1]{%
     \settowidth{\tmplength}{\bfseries\figurename \thefigure:}
-    {\raggedright\mdseries\makebox[\tmplength][l]{\sourcename}: #1\par}
+    {\raggedright\mdseries\makebox[\tmplength][l]{\sourcename}: #1\par\bigskip}
   }
 }
 \AtBeginEnvironment{photo}{%
   \captionstyle{\raggedright}
   \newcommand\source[1]{%
     \settowidth{\tmplength}{\bfseries\photoname \thephoto:}
-    {\raggedright\mdseries\makebox[\tmplength][l]{\sourcename}: #1\par}
+    {\raggedright\mdseries\makebox[\tmplength][l]{\sourcename}: #1\par\bigskip}
   }
 }
 \AtBeginEnvironment{table}{%
   \newcommand\source[1]{%
-    \settowidth{\tmplength}{\bfseries\tablename \thetable:}
-    {\raggedright\mdseries\makebox[\tmplength][l]{\sourcename}: #1\par}
+    \bigskip
+    {\raggedright\mdseries\sourcename: #1\par\bigskip}
   }
 }
 
