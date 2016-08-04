@@ -75,12 +75,18 @@
 \newlistentry{photo}{lop}{0}
 
 %%%%%%%%%
-% Various translations for existing LaTeX keywords
+% Various translations for keywords
 %%%%%%%%%
 \newcommand{\titlename}{Title}
 \newcommand{\sourcename}{Source}
 \newcommand{\acknowname}{Acknowledgement}
 \newcommand{\appendixlistname}{\texorpdfstring{LIST OF APPENDICES}{List of Appendices}}
+\newcommand{\namename}{Name}
+\newcommand{\matricname}{Matric No.}
+\newcommand{\degreename}{Degree}
+\newcommand{\vivadatename}{Viva Date}
+\newcommand{\certifiedby}{Certified by}
+\newcommand{\signaturename}{Signature}
 \addto\captionsenglish{
   \renewcommand*\contentsname{\texorpdfstring{TABLE OF CONTENTS}{Table of Contents}}
   \renewcommand*\listfigurename{\texorpdfstring{LIST OF FIGURES}{List of Figures}}
@@ -101,11 +107,17 @@
   \renewcommand*\appendixpagename{Lampiran}
   \renewcommand*\appendixtocname{Lampiran}
   \renewcommand*\appendixlistname{\texorpdfstring{SENARAI LAMPIRAN}{Senarai Lampiran}}
-  \renewcommand{\sourcename}{Sumber}
-  \renewcommand{\titlename}{Tajuk}
-  \renewcommand{\acknowname}{Penghargaan}
-  \renewcommand{\photoname}{Foto}
+  \renewcommand*{\sourcename}{Sumber}
+  \renewcommand*{\titlename}{Tajuk}
+  \renewcommand*{\acknowname}{Penghargaan}
+  \renewcommand*{\photoname}{Foto}
   \renewcommand*\listphotoname{\texorpdfstring{SENARAI FOTO}{Senarai Foto}}
+  \renewcommand*{\namename}{Nama}
+  \renewcommand*{\matricname}{No.~Matrik}
+  \renewcommand*{\degreename}{Ijazah}
+  \renewcommand*{\vivadatename}{Tarikh Viva}
+  \renewcommand*{\certifiedby}{Disahkan oleh}
+  \renewcommand*{\signaturename}{Tandatangan}
 }
 
 \pretocmd{\bibliography}{%
@@ -118,14 +130,13 @@
   \fi
 }{}{}
 
-\RequirePackage{tabularx}
+\RequirePackage{tabularx,makecell}
 \RequirePackage{dashrule}
 \AtBeginDocument{%
-  \RequirePackage[breaklinks,plainpages=false,pdfpagelabels]{hyperref}
+  \RequirePackage[breaklinks,bookmarksdepth=2]{hyperref}
   \pdfstringdefDisableCommands{%
     \let\MakeUppercase\relax
   }
-  \RequirePackage[depth=2]{bookmark}
 }
 
 
@@ -248,7 +259,7 @@
 }
 
 %%%%%%%%%%%%
-% Declaration
+% Candidate's Declaration
 %%%%%%%%%%%%
 \newcommand{\makedeclaration}[1]{%
   \begingroup
@@ -286,7 +297,43 @@
 }
 
 %%%%%%%%%%%%
-% Acknowldgements
+% Supervisor's Declaration
+%%%%%%%%%%%%
+\newenvironment{SVdeclaration}{
+  \clearpage\begingroup
+  \centering\SingleSpacing
+  \renewcommand{\arraystretch}{2.0}%
+  \begin{tabularx}{.95\textwidth}{l @{\hspace{1em}:\hspace{0.5em}} >{\bfseries\raggedright\arraybackslash}X}
+  \MakeUppercase{\namename}   & \MakeUppercase{\@author}\\
+  \MakeUppercase{\matricname} & \MakeUppercase{\@mtmatric}\\
+  \MakeUppercase{\titlename}  & \MakeUppercase{\@title}\\
+  \MakeUppercase{\degreename} & \makecell[lt]{\MakeUppercase{\@mtdegree}\\(\MakeUppercase{\@mtstudyfield})}\\
+  \MakeUppercase{\vivadatename} & \MakeUppercase{\@mtvivadate}\\
+  \end{tabularx}\par
+
+  \vspace{2\baselineskip}
+  \textbf{\MakeUppercase{\certifiedby}}\par
+  \vspace{\baselineskip}
+  \newcounter{member}
+  \newcommand{\member}[2]{%
+    \\[2em]
+    \stepcounter{member}
+    \themember. & \textbf{\MakeUppercase{##1}} \\
+    & \emph{##2} & \\
+    \cmidrule{3-3}
+  }
+  \renewcommand{\arraystretch}{1.0}
+  \tabularx{\textwidth}{>{\bfseries}l >{\raggedright\arraybackslash}X c}
+  && \signaturename\\
+}{%
+  \endtabularx
+  \endgroup
+  \clearpage
+}
+
+
+%%%%%%%%%%%%
+% Acknowledgements
 %%%%%%%%%%%%
 \newenvironment{acknowledgement}[1][]{%
   \chapter{\acknowname}%

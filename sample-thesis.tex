@@ -47,8 +47,16 @@
 %% Generates the cover page, a blank page, and then the title page
 \makecoverandtitlepage
 
-%% Generates
+%% Candidate's Declaration (remember to sign!)
 \makedeclaration{1 Aug 2016}
+
+%% Supervisor's Declaration (remember to sign!)
+\begin{SVdeclaration}
+  \member{Main Supervisor}{Name of Supervisor}
+  \member{Co-Supervisor}{Name of Co-supervisor}
+\end{SVdeclaration}
+
+
 
 %% Acknowledgements in a separate file
 \input{acknowledgements}
@@ -56,34 +64,6 @@
 %% English and Malay abstracts in their respective files
 \inputEnAbstract{sample-abstract}
 \inputMsAbstract[Nyatakan Tajuk Bahasa Malaysia]{sample-msabstract}
-
-
-%% Examination Committee Approval: Only required for graduate students.
-%% Undegraduates may comment out this block.
-% \begin{examcommapproval}
-%   % Exam Committee Chairman
-%   \member[title=Professor, department={Faculty of Mathematics}, role={Chairman}]{Name of Chairperson, PhD}
-%   % Internal Examiner 1
-%   \member[title=Associate Professor, department={Faculty of Engineering}, role={Internal Examiner}]{Name of Examiner 1, PhD}
-%   % Internal Examiner 2
-%   \member[title={}, department={Faculty of Engineering}, role={Internal Examiner}]{Name of Examiner 2, PhD}
-%   % External Examiner
-%   \member[title=Associate Professor, department={School of Chemical Engineering}, institute={Imperial College}, role={External Examiner}]{Name of External, PhD}
-% \end{examcommapproval}
-
-% %% Supervisory Committee Approval
-% \begin{supervisoryapproval}
-%   % Supervisory Committee Chairman
-%   \member[title={Associate Professor}, role={Main Supervisor}, department={Faculty of Engineering}]{Name of Chairperson, PhD}
-%   % Supervisory Committee Member 1
-%   \member[title={Ir.}, role={Co-Supervisor}, department={Faculty of Engineering}]{Name of Member 1, PhD}
-%   % Supervisory Committee Member 2
-%   \member[role={Co-Supervisor}, department={Faculty of Engineering}]{Name of Member 2, PhD}
-% \end{supervisoryapproval}
-
-
-%% Declaration page -- remember to sign
-% \declarationpage
 
 
 %% Content lists
