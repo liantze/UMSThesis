@@ -542,9 +542,6 @@
   \appto{\afterchaptertitle}{\thispagestyle{empty}}%
 }{}{}
 
-\patchcommand{\bibitem}{\SingleSpacing}{}
-
-
 %%%%%%%%%%%%
 % Content Lists
 %%%%%%%%%%%%
